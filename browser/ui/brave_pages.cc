@@ -16,4 +16,17 @@ void ShowBravePayments(Browser* browser) {
       GetSingletonTabNavigateParams(browser, GURL(kBraveUIPaymentsURL)));
 }
 
+void ShowBraveSync(Browser* browser) {
+   ShowSingletonTabOverwritingNTP(
+       browser,
+      GetSingletonTabNavigateParams(browser, GURL(kBraveUISyncURL)));
+}
+
+void LoadBraveSyncJsLib(Browser* browser) {
+   ShowSingletonTabOverwritingNTP(
+       browser,
+      GetSingletonTabNavigateParams(browser, GURL(kBraveSyncLibURL)));
+}
+
+
 }  // namespace brave

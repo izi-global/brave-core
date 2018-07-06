@@ -1,0 +1,8 @@
+import("//third_party/protobuf/proto_library.gni")
+
+proto_library("protocol") {
+  sources = [
+    "//brave/vendor/brave-sync/lib/api.proto",
+  ]
+  #extra_configs = [ "//build/config/compiler:wexit_time_destructors" ]
+}
