@@ -23,6 +23,7 @@ if (is_win) {
   brave_exe = "$brave_exe.exe"
 } else if (is_mac) {
   brave_exe = "$chrome_product_full_name.app"
+  brave_dmg = "$chrome_product_full_name.dmg"
 }
 
 brave_icon_dir = "nightly"
@@ -54,7 +55,3 @@ if (is_official_build) {
 }
 
 brave_product_dir_name = "BraveSoftware/Brave-Browser$brave_product_dir_name_suffix"
-
-if (is_mac) {
-  brave_target_app_name = "Brave-Browser$brave_product_dir_name_suffix"
-}
