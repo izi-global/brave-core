@@ -2287,7 +2287,7 @@
     Smarter spell-checking by sending what you type in the browser to Brave
   </message>
   <message name="IDS_SETTINGS_ENABLE_LOGGING" desc="The label of the checkbox to enable/disable crash and user metrics logging">
-    Automatically send usage statistics and crash reports to Brave
+    Automatically send crash reports to Brave
   </message>
   <message name="IDS_SETTINGS_ENABLE_LOGGING_DIAGNOSTIC_AND_USAGE_DATA" desc="The label of the checkbox to enable/disable diagnostic and user metrics logging">
     Automatically send diagnostic and usage data to Brave
