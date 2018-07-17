@@ -1,6 +1,5 @@
 diff --git a/chrome/browser/resources/settings/privacy_page/privacy_page.html b/chrome/browser/resources/settings/privacy_page/privacy_page.html
-<<<<<<< HEAD
-index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..48febf5e052144fcaed8fd30c62a09a0e9d21b38 100644
+index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..da61cda7b17534bfa7045995d5870e1b8956c0b1 100644
 --- a/chrome/browser/resources/settings/privacy_page/privacy_page.html
 +++ b/chrome/browser/resources/settings/privacy_page/privacy_page.html
 @@ -68,9 +68,11 @@
@@ -15,7 +14,7 @@ index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..48febf5e052144fcaed8fd30c62a09a0
          <settings-toggle-button hidden="[[!pageVisibility.searchPrediction]]"
              pref="{{prefs.search.suggest_enabled}}"
              label="$i18n{searchSuggestPref}">
-@@ -80,12 +82,14 @@
+@@ -80,16 +82,18 @@
              label="$i18n{networkPredictionEnabled}"
              numeric-unchecked-value="[[networkPredictionEnum_.NEVER]]">
          </settings-toggle-button>
@@ -30,17 +29,8 @@ index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..48febf5e052144fcaed8fd30c62a09a0
          <settings-toggle-button pref="{{prefs.safebrowsing.enabled}}"
              label="$i18n{safeBrowsingEnableProtection}">
          </settings-toggle-button>
-=======
-index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..2dde6c32cf91eebd7084fe3c3e6470648bedd1a2 100644
---- a/chrome/browser/resources/settings/privacy_page/privacy_page.html
-+++ b/chrome/browser/resources/settings/privacy_page/privacy_page.html
-@@ -89,7 +89,7 @@
-         <settings-toggle-button pref="{{prefs.safebrowsing.enabled}}"
-             label="$i18n{safeBrowsingEnableProtection}">
-         </settings-toggle-button>
 -<if expr="_google_chrome">
 +<if expr="_chromium">
  <if expr="chromeos">
          <settings-toggle-button pref="{{prefs.cros.metrics.reportingEnabled}}"
              label="$i18n{enableLogging}">
->>>>>>> Use brave-core specific crash reporting end point
