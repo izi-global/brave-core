@@ -7,6 +7,7 @@ namespace settings {
 void AddCommonStrings(content::WebUIDataSource* html_source, Profile* profile) {
   AddCommonStrings_ChromeImpl(html_source, profile);
   LocalizedString localized_strings[] = {
+    {"importCookies", IDS_SETTINGS_IMPORT_COOKIES_CHECKBOX},
     {"siteSettingsAutoplay",
       IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY},
     {"siteSettingsCategoryAutoplay",
