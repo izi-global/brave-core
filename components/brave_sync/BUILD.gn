@@ -34,8 +34,5 @@ source_set("brave_sync") {
 
   public_deps = [
     "//content/public/browser",
-    "//brave/components/brave_sync/protocol",
-     # marked as `Do not use in Chrome code.` protobuf:protobuf_lite requires `syntax = "proto2";`
-    "//third_party/protobuf:protobuf_full",
   ]
 }

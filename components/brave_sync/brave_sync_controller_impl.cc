@@ -35,9 +35,6 @@
 #include "chrome/browser/ui/browser.h"
 #include "content/public/browser/browser_thread.h"
 
-#include "third_party/protobuf/src/google/protobuf/stubs/status.h"
-#include "third_party/protobuf/src/google/protobuf/util/json_util.h"
-#include "brave/vendor/brave-sync/lib/api.pb.h"
 
 namespace brave_sync {
 
@@ -641,47 +638,6 @@ void BraveSyncControllerImpl::OnResolvedSyncRecords(const base::ListValue* args)
 
    LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: category_name="<<category_name;
    LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: records_json="<<records_json;
-
-// Test of direct read of JSON => protobuf:
-{
-api::SyncRecord_Device parsed3;
-std::string records_json3 = "{\"name\":\"cf155\"}";
-google::protobuf::util::JsonParseOptions opt;opt.ignore_unknown_fields = true;
-google::protobuf::util::Status s = google::protobuf::util::JsonStringToMessage(records_json3, &parsed3);
-if (s.ok()) {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed ok";
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed parsed3.name()=" << parsed3.name();
-} else {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed with error " << s.error_message();
-}
-
-api::SyncRecord_Site parsed4;
-std::string records_json4 = "{\"location\":\"https://itc.ua/\",\"title\":\"ITC.ua\",\"customTitle\":\"\",\"lastAccessedTime\":0,\"creationTime\":0,\"favicon\":\"\"}";
-google::protobuf::util::Status s4 = google::protobuf::util::JsonStringToMessage(records_json4, &parsed4);
-if (s4.ok()) {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed ok";
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed parsed4.location()=" << parsed4.location();
-} else {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed with error " << s4.error_message();
-}
-
-api::SyncRecord_Bookmark parsed5;
-std::string records_json5 = "{\"site\":{\"location\":\"https://itc.ua/\",\"title\":\"ITC.ua\",\"customTitle\":\"\",\"lastAccessedTime\":0,\"creationTime\":0,\"favicon\":\"\"},\"isFolder\":false,\"order\":\"2.1.1\",\"parentFolderObjectId\":[]}";
-google::protobuf::util::Status s5 = google::protobuf::util::JsonStringToMessage(records_json5, &parsed5);
-if (s5.ok()) {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed ok";
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed parsed5.hideintoolbar()=" << parsed5.hideintoolbar();
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed parsed5.has_site()=" << parsed5.has_site();
-  if (parsed5.has_site()){
-    LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed parsed5.site().location()=" << parsed5.site().location();
-//parsed with error : Proto field is not repeating, cannot start list.
-// Likely because of `"parentFolderObjectId":[]`
-  }
-} else {
-  LOG(ERROR) << "TAGAB BraveSyncControllerImpl::OnResolvedSyncRecords: parsed with error " << s5.error_message();
-}
-CHECK(false);
-}
 
    // TODO, AB: Maybe direct HandleMessage without stringizing can avoid (data)=>JSON=>(value)
    // JSON ==> Value
