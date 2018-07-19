@@ -15,16 +15,17 @@
 
 + (instancetype)sharedSparkleGlue;
 
-+ (std::string)descriptionFromAppcastItem:(id)item;
-
 - (instancetype)init;
 
-- (void)setDelegate:(id)delegate;
+- (void)initializeBraveUpdater;
+
 - (void)checkForUpdates:(id)sender;
 - (void)checkForUpdatesInBackground;
+/*
 - (void)setAutomaticallyChecksForUpdates:(BOOL)enable;
 - (void)setAutomaticallyDownloadsUpdates:(BOOL)enable;
 - (void)setUpdateCheckInterval:(NSTimeInterval)interval;
+*/
 
 @end  // @interface SparkleGlue
 
